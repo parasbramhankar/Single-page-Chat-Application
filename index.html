@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time Chat Application</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+
+  <!-- Header (Navigation Bar) -->
+  <header class="header">
+    <h4>Single Page Chat Application</h4>
+  </header>
+
+
+  <!-- Pop-up for user name input -->
+  <div class="popup" id="usernamePopup1">
+    <div class="popup-content">
+      <h2>Enter User 1's Name</h2>
+      <input type="text" id="user1Name" placeholder="Enter User 1 Name" required>
+      <button onclick="setUsernames('user1')">Submit</button>
+    </div>
+  </div>
+
+  <div class="popup" id="usernamePopup2" style="display: none;">
+    <div class="popup-content">
+      <h2>Enter User 2's Name</h2>
+      <input type="text" id="user2Name" placeholder="Enter User 2 Name" required>
+      <button onclick="setUsernames('user2')">Submit</button>
+    </div>
+  </div>
+
+  <!-- Main chat container -->
+  <div class="chat-container">
+    
+    <!-- User 1 chat window -->
+    <div class="chat-box" id="chat-box1">
+      <div class="chat-header">
+        <img id="user1ProfilePic" class="profile-pic" src="default-avatar.png" alt="User 1's Profile Pic">
+        <span id="user1Header">User 1</span>
+
+        <!---drop down menu-->
+        <div class="options" onclick="toggleOptionsUser1(1)">&#8942;</div>
+      </div>
+      <div class="chat-content" id="content1"></div>
+      <div class="message-input">
+        <div class="emoji-picker" id="emojiPicker1">
+          <button onclick="showEmojis(1)">😊</button>
+        </div>
+        <input type="text" id="input1" placeholder="Type a message...">
+        <div class="file-picker">
+          <button onclick="showFileOptions(1)">+</button>
+        </div>
+        <button class="send-button" onclick="sendMessage(1)">Send</button>
+      </div>
+    </div>
+
+    <!-- User 2 chat window -->
+    <div class="chat-box" id="chat-box2">
+      <div class="chat-header">
+        <img id="user2ProfilePic" class="profile-pic" src="default-avatar.png" alt="User 2's Profile Pic">
+        <span id="user2Header">User 2</span>
+        <div class="options" onclick="toggleOptionsUser2(2)">&#8942;</div>
+      </div>
+      <div class="chat-content" id="content2"></div>
+      <div class="message-input">
+        <div class="emoji-picker" id="emojiPicker2">
+          <button onclick="showEmojis(2)">😊</button>
+        </div>
+        <input type="text" id="input2" placeholder="Type a message...">
+        <div class="file-picker">
+          <button onclick="showFileOptions(2)">+</button>
+        </div>
+        <button class="send-button" onclick="sendMessage(2)">Send</button>
+      </div>
+    </div>
+
+    <!-- Options menu -->
+    <div class="options-menu options-menu1" id="optionsMenu1">
+      <button onclick="clearChat(1)">Clear Chat</button> <hr>
+      <button onclick="changeProfilePicture(1)">Change Profile Picture</button>
+    </div>
+    <div class="options-menu options-menu2" id="optionsMenu2">
+      <button onclick="clearChat(2)">Clear Chat</button> <hr>
+      <button onclick="changeProfilePicture(2)">Change Profile Picture</button>
+    </div>
+
+  </div>
+
+
+  <footer class="footer">
+    <p>&copy; Paras 12-02-2025</p>
+  </footer>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
